@@ -1,0 +1,41 @@
+﻿@model IEnumerable<DAL.Productos>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>REPORTE DE PRODUCTOS ACTIVOS</h2>
+
+<p>
+   
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreProducto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.NombreProducto)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Estado)
+    </td>
+    <td>
+
+        @Html.ActionLink("DETALLES", "Details", new { id = item.CodigoProducto }) |---| 
+        @Html.ActionLink("IMPRIMIR REPORTE", "", new { id = item.CodigoProducto })
+    </td>
+ 
+</tr>
+}
+
+</table>
